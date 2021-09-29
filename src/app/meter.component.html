@@ -1,115 +1,182 @@
-<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
-    <mat-card-header>
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" #energyMeter>
+  <div class="row pl2">
+    <div class="col-12">
+      <mat-card class="box">
+        <mat-card-header>
+          <div class="textPink">Round: {{ round }}</div>
+          <div class="textBlue">Energy: {{ energy }}</div>
+        </mat-card-header>
 
-        <div style="padding-bottom: 0.5em;">Ronda: {{ round }}</div>
-        <div style="padding-bottom: 0.5em;">Energia: {{ energy }}</div>
-        
-
-    </mat-card-header>
-
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6">
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addEnergy(4)">
-                +4
-              </button>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6">
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="addbutton"
+                  (click)="addEnergy(4)"
+                >
+                  +4
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="addbutton"
+                  (click)="addEnergy(3)"
+                >
+                  +3
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="addbutton"
+                  (click)="addEnergy(2)"
+                >
+                  +2
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="addbutton"
+                  (click)="addEnergy(1)"
+                >
+                  +1
+                </button>
+              </div>
             </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addEnergy(3)">
-                +3
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addEnergy(2)">
-                +2
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addEnergy(1)">
-                +1
-              </button>
+            <div class="col-6">
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="removeEnergy(4)"
+                >
+                  -4
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="removeEnergy(3)"
+                >
+                  -3
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="removeEnergy(2)"
+                >
+                  -2
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="removeEnergy(1)"
+                >
+                  -1
+                </button>
+              </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="row">
-              <button mat-raised-button color="warn" (click)="removeEnergy(4)">
-                -4
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="warn" (click)="removeEnergy(3)">
-                -3
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="warn" (click)="removeEnergy(2)">
-                -2
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="warn" (click)="removeEnergy(1)">
-                -1
-              </button>
-            </div>
-          </div>
-        </div>
+        </mat-card-content>
+        <button
+          style="margin-bottom: 0.5em"
+          mat-raised-button
+          color="primary"
+          class="btn-block"
+          (click)="nextRound()"
+        >
+          Next Round
+        </button>
 
-      </mat-card-content>
-      <button style="margin-bottom: 0.5em;" mat-raised-button color="warn" class="btn-block" (click)="nextRound()">
-        Next Round
-      </button>
-
+        <button
+          mat-raised-button
+          color="accent"
+          class="btn-block"
+          (click)="newMatch()"
+        >
+          New Match
+        </button>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row ml-2">
+    <div class="col-12">
       <button
-        mat-raised-button
-        color="accent"
-        class="btn-block"
-        (click)="newMatch()"
-      >
-        New Match
-      </button>
-
-  </mat-card>
+        md-fab
+        class="image"
+        [style.backgroundImage]="'url(https://i.ibb.co/HzPx50r/slp-icon.png)'"
+        aria-label="Go to SLP meter"
+        (click)="scrollToBottom()"
+      ></button>
+    </div>
+  </div>
 </div>
 
-<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
-    <mat-card-header>
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" #slpMeter >
+  <div class="row row pl2">
+    <div class="col-12">
+      <mat-card class="box">
+        <mat-card-header>
+          <div class="textBlue">Ganadas: {{ wins }}</div>
+          <div class="textPink">SLP: {{ slp }}</div>
+        </mat-card-header>
 
-        <div style="padding-bottom: 0.5em;">Ganadas: {{ wins }}</div>
-        <div style="padding-bottom: 0.5em;">SLP: {{ slp }}</div>
-        
-
-    </mat-card-header>
-
-      <mat-card-content>
-        <div class="row">
-          <div class="col-12">
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addSLP(4)">
-                +9
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addSLP(3)">
-                +6
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addSLP(2)">
-                +3
-              </button>
-            </div>
-            <div class="row">
-              <button mat-raised-button color="primary" (click)="addSLP(1)">
-                +1
-              </button>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <button mat-raised-button color="accent" (click)="addSLP(4)">
+                  +9
+                </button>
+              </div>
+              <div class="row">
+                <button mat-raised-button color="accent" (click)="addSLP(3)">
+                  +6
+                </button>
+              </div>
+              <div class="row">
+                <button mat-raised-button color="accent" (click)="addSLP(2)">
+                  +3
+                </button>
+              </div>
+              <div class="row">
+                <button mat-raised-button color="accent" (click)="addSLP(2)">
+                  +2
+                </button>
+              </div>
+              <div class="row">
+                <button mat-raised-button color="accent" (click)="addSLP(1)">
+                  +1
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-      </mat-card-content>
-
-  </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row ml-2">
+    <div class="col-12">
+      <button
+        md-fab
+        class="image"
+        [style.backgroundImage]="'url(https://i.ibb.co/BZgHHww/energy-icon.png)'"
+        aria-label="Go to energy meter"
+        (click)="scrollToTop()"
+      ></button>
+    </div>
+  </div>
 </div>

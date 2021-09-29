@@ -5,6 +5,16 @@ body {
 	padding: 0;
 }
 
+.image{
+	 background-color: transparent;
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	 background-position: center center;
+	height: 3em;
+	width: 6em;
+	border: none;
+  }
+
 body {
 	min-height: 100vh;
 	background-color: #e5e5e5;
@@ -28,6 +38,24 @@ body {
 .positronx {
 	text-decoration: none;
 	color: #ffffff;
+}
+
+.pl2 {
+	padding-left: 6em !important;
+}
+
+.textPink {
+	color: #ff4081;
+	padding-bottom: 0.5em !important;
+}
+
+.textBlue {
+	color: #3f51b5;
+	padding-bottom: 0.5em !important;
+}
+
+.addbutton {
+	background-color: #3fb551;
 }
 
 .box {
@@ -97,7 +125,7 @@ span{
 }
 
 .main-wrapper .mat-card {
-	padding: 45px 30px 55px;
+	padding: 40px 30px 40px;
 }
 
 .main-wrapper .mat-stroked-button {
