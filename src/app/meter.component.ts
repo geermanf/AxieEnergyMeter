@@ -16,6 +16,7 @@ export class MeterComponent {
   round: number = 1;
   slp: number = 0;
   wins: number = 0;
+  ejemplo: number = 0;
 
   addEnergy(quantity: number) {
     this.energy = this.energy + quantity;
